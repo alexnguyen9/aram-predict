@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ARAM Predictor</title>
+
+<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+
+<script src="{{ url_for('static', filename='pic.js')}}"></script>
+
+
+
+</head>
+
+
+<nav class="navbar navbar-fixed-bottom navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://alexnguyen9.github.io/">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        <li><a href="https://alexnguyen9.github.io/project/lolaram/">How it works</a></li>
+		<li><a href={{ url_for('scoring') }}>Champion Ranking</a></li>
+		<!-- <li><a href="#">hello</a></li> -->
+		
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<body>
+
+
+<div id=container0>
+	
+	<div id="header" style="color:white;"> <h1> League Of Legends ARAM Match Predictor </h1> </div>
+	
+
+	<form action="{{ url_for('predict')}}" method="post">
+	
+
+	<div id=container1>
+	
+
+
+		<div class="column">
+		
+		<h1> Blue Team </h1>
+		
+		
+		
+		<div class="form-group">
+		
+			<div class="picture"> <img src= "../static/placeholder.png" id="pic1"> </div>
+		
+		<select class="selectpicker" title="Choose Champion 1" data-show-subtext="true" data-live-search="true" id="bChampion1" name="bChampion1" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option  value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+		 
+		 
+		
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic2"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 2" data-show-subtext="true" data-live-search="true" id="bChampion2" name="bChampion2" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic3"> </div>
+		
+
+		<select class="selectpicker" title="Choose Champion 3" data-show-subtext="true" data-live-search="true" id="bChampion3" name="bChampion3" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic4"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 4" data-show-subtext="true" data-live-search="true" id="bChampion4" name="bChampion4" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+		
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic5"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 5" data-show-subtext="true" data-live-search="true" id="bChampion5" name="bChampion5" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+		
+		</div>
+		
+	</div>
+	
+	<div id=container2>
+
+		
+		<div class="column">
+		
+		<h1> Red Team </h1>
+		
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic6"> </div>
+		
+		<select class="selectpicker" title="Choose Champion 1" data-show-subtext="true" data-live-search="true" id="rChampion1" name="rChampion1" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+		 
+		 
+		
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic7"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 2" data-show-subtext="true" data-live-search="true" id="rChampion2" name="rChampion2" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic8"> </div>
+		
+
+		<select class="selectpicker" title="Choose Champion 3" data-show-subtext="true" data-live-search="true" id="rChampion3" name="rChampion3" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic9"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 4" data-show-subtext="true" data-live-search="true" id="rChampion4" name="rChampion4" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+		
+
+		<div class="form-group">
+		
+			<div class="picture"> <img src="../static/placeholder.png" id="pic10"> </div>
+			
+
+		<select class="selectpicker" title="Choose Champion 5" data-show-subtext="true" data-live-search="true" id="rChampion5" name="rChampion5" required="required" data-size="10">
+    		{% for i in champions.index %} 
+        		<option value="{{ i }}"> {{ champions.name[i] }} </option>
+        	{% endfor %}
+		</select>
+		</div>
+		
+		</div>
+	
+	</div>
+	
+	<input type="submit" value="Predict">
+	
+	
+	</form>
+
+	
+	{% block result %}{% endblock %}
+	
+</div>
+
+{% block script %}{% endblock %}
+<script>
+<!-- $('#bChampion1').selectpicker(); -->
+<!-- $('#bChampion1').selectpicker('val', "Ahri"); -->
+<!-- $('#pic1').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion1').val() + ".png"); -->
+</script>
+
+
+
+
+
+
+		
+</body>
+	
+</html>
+
+
+

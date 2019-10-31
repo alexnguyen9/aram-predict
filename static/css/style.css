@@ -1,0 +1,151 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-position: 50% 50%;
+	background: url("../background.jpg") no-repeat center center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+
+
+#header{
+	text-align: center;
+}
+
+
+#container0{
+	margin: 0 auto;
+	//display: inline-block;
+	width:750px;
+
+	
+}
+
+#container1{
+	background: rgba(0, 0, 255, 0.6);
+	border-color: #0000ff;
+	
+	color: white;
+	width: 350px;
+	float: left;
+	border-style: solid;
+	border-radius: 10px;
+	text-align: center;
+}
+
+
+#container2{
+	background: rgba(255, 0, 0, 0.6);
+	border-color: #990000;
+	
+	color: white;
+	width: 350px;
+	float: right;
+	border-style: solid;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.column{
+	//border-style: solid;
+	padding-top: 15px;
+	padding-bottom: 25px;
+}
+
+#resultblue{
+	background: rgba(0, 0, 255, 0.7);
+	border-color: #0000ff;
+	
+	color: white;
+	font-size: 25px;
+	margin-top: 50px;
+	border-style: solid;
+	padding: 10px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+
+#resultred{
+	background: rgba(255, 0, 0, 0.7);
+	border-color: #990000;
+	
+	color: white;
+	font-size: 25px;
+	margin-top: 50px;
+	border-style: solid;
+	padding: 10px;
+	border-radius: 10px;
+	text-align: center;
+	
+}
+
+.picture{
+	//border-style: solid;
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-group{
+	//border-style: solid;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+
+
+img { 
+	max-width: 50px;
+}
+
+
+
+
+/* Style the submit button */
+input[type=submit] {
+  font-size: 30px;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Add a background color to the submit button on mouse-over */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+/* Style Tables */
+table{
+	
+    margin-left:auto; 
+    margin-right:auto;
+	margin-bottom:100px;
+}
+
+table.dataframe td{
+	padding-left:10px;
+	padding-right:10px;
+	background-color: #bde9ba;
+	text-align:center;
+}
+
+table.dataframe th{
+	font-size:25px;
+	padding-left:10px;
+	padding-right:10px;
+	background-color: #bde9ba;
+}
+

@@ -1,0 +1,63 @@
+{% extends "index.html" %}
+
+
+{% block result %}
+        
+	<div id={{ "resultred" if result[0] > 0.5 else "resultblue" }}>
+	
+	<!-- using the conditional in jinja  -->
+	{{ "Red" if result[0] > 0.5 else "Blue" }} team is predicted to win. <br>
+	Predicted Win Probability is: {{ ((result | sort)[-1] * 100) | round(2)  }}% 
+	
+	</div>
+		
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+$('#bChampion1').selectpicker();
+$('#bChampion1').selectpicker('val', "{{ comp[0] }}");
+$('#pic1').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion1').val() + ".png");
+
+$('#bChampion2').selectpicker();
+$('#bChampion2').selectpicker('val', "{{ comp[1] }}");
+$('#pic2').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion2').val() + ".png");
+
+$('#bChampion3').selectpicker();
+$('#bChampion3').selectpicker('val', "{{ comp[2] }}");
+$('#pic3').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion3').val() + ".png");
+
+$('#bChampion4').selectpicker();
+$('#bChampion4').selectpicker('val', "{{ comp[3] }}");
+$('#pic4').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion4').val() + ".png");
+
+$('#bChampion5').selectpicker();
+$('#bChampion5').selectpicker('val', "{{ comp[4] }}");
+$('#pic5').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#bChampion5').val() + ".png");
+
+$('#rChampion1').selectpicker();
+$('#rChampion1').selectpicker('val', "{{ comp[5] }}");
+$('#pic6').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#rChampion1').val() + ".png");
+
+$('#rChampion2').selectpicker();
+$('#rChampion2').selectpicker('val', "{{ comp[6] }}");
+$('#pic7').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#rChampion2').val() + ".png");
+
+$('#rChampion3').selectpicker();
+$('#rChampion3').selectpicker('val', "{{ comp[7] }}");
+$('#pic8').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#rChampion3').val() + ".png");
+
+$('#rChampion4').selectpicker();
+$('#rChampion4').selectpicker('val', "{{ comp[8] }}");
+$('#pic9').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#rChampion4').val() + ".png");
+
+$('#rChampion5').selectpicker();
+$('#rChampion5').selectpicker('val', "{{ comp[9] }}");
+$('#pic10').attr('src', "http://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/" + $('#rChampion5').val() + ".png");
+
+
+</script>
+
+{% endblock %}
