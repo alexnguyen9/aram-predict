@@ -22,7 +22,7 @@ I primarily used the [Cassiopeia package](https://github.com/meraki-analytics/ca
 The second portion in the `Data Extraction.ipynb` notebook takes each the match ID's and finds the champions in each team present in that particular match, and which team won (which would be our target) and creates a dataframe (columns represent champions, rows represent a particular match) using the count vectorizer from above. This exports the final dataframe as a  pickle file `final_df.p`.
 
 ### Step 3: 
-The python file  `train_and_scoring.py` takes in the final dataframe and trains the data using logistic regression, ridge classifier, SVM, and decision trees.  Simple cross validation was utilized tune each of the 4 models. For my project, I utilized the logistic regression classifier.  This produces the pickle file `logistic_regression.p` as the fitted model.
+The python file  `train_and_scoring.py` takes in the final dataframe and trains the data using logistic regression, ridge classifier, SVM, and decision trees. A simple cross validation was utilized to tune each of the 4 models. For my project, I utilized the logistic regression classifier.  This produces the pickle file `logistic_regression.p` as the fitted model.
 
 Secondly, I produced a dataframe that contained a sorted dataframe of the champions using their coefficients (I converted it into a 0 to 100 range) This produced the pickled dataframe: `scores.p` which will be used in the flask app
 
