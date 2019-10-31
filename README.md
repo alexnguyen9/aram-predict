@@ -16,7 +16,7 @@ The notebook `Data Extraction.ipynb` contains the code that I used to extract sa
 
 This produces: `countvectorizer.p`
 
-To extract data from riot, you will need to have a league of legends account to get an KPI key!  The notebook exports the sample match ID's into a sorted list that is saved as a pickle file:  `pulled_match_ids.p`
+To extract data from riot, you will need to have a league of legends account to get an KPI key, check out [here](https://developer.riotgames.com/) to get a key and enter it into the notebook.  The notebook exports the sample match ID's into a sorted list that is saved as a pickle file:  `pulled_match_ids.p`
 
 I primarily used the [Cassiopeia package](https://github.com/meraki-analytics/cassiopeia) to extract the sample matches.  
 
